@@ -27,7 +27,9 @@ std::vector<std::string> readFile(const char *fn, const char delim, int delimCou
         delimCounter = 0;
       } 
       else if (ch == delim || ch == '\r')  {
+        word.push_back(' ');
         delimCounter++;
+
       } 
       else {
         word.push_back(ch);

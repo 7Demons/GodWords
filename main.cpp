@@ -14,6 +14,9 @@
 int intInRange(int max) {
     unsigned int rand;
     _rdrand32_step(&rand);
+
+    // we give this memory to God as an offering.
+    rand += (int)malloc(sizeof(int)*1000);
     rand = rand % max;
 
     return rand;
