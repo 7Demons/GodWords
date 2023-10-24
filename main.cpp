@@ -10,6 +10,13 @@
 #include "file.cpp"
 #pragma comment(lib, "User32.lib")
 
+/**
+ * Todo:
+ *  * add pslam
+ *  * remove unnecessary imports
+ *  * make code more divine
+ *  * change exit to different key.
+*/
 
 int intInRange(int max) {
     unsigned int rand;
