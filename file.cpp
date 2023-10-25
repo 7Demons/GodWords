@@ -20,19 +20,23 @@ std::vector<std::string> readFile(const char *fn, const char delim, int delimCou
 
     int delimCounter = 0;
     do {
+
       char ch = buf->sgetc();
-      if (ch == delim && delimCounter == delimCount) {
+
+      if (ch == delim) {
+        word.push_back(' ');
+        delimCounter++;
+      } else if (ch == '\r') {
+        
+      } else {
+        word.push_back(ch);
+        delimCounter = 0;
+      }
+
+      if (delimCounter >= delimCount) {
         words.push_back(word);
         word.clear();
         delimCounter = 0;
-      } 
-      else if (ch == delim || ch == '\r')  {
-        word.push_back(' ');
-        delimCounter++;
-
-      } 
-      else {
-        word.push_back(ch);
       }
     } while ( buf->snextc() != EOF );
 
